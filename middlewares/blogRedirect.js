@@ -1,7 +1,7 @@
 const blogRedirect = (req,res,next) =>{
   if(req.url === '/')
   {
-    return res.render('index');
+    return res.redirect('/homePage');
   }
   return next();
 }

@@ -4,8 +4,11 @@ const blogSchema = new mongoose.Schema(
   {
     title: String,
     author: String,
-    imgUrl: String,
-    contact: String,
+    image: String,
+    content: String,
+    category: String,
+    publishedDate: { type: Date, required: true },
+    status: String,
   },
   { timestamps: true }
 );
