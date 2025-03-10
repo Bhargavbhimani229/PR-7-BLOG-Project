@@ -14,10 +14,9 @@ blogRouter.post("/update/:id", upload, blogController.blogUpdate);
 blogRouter.get("/blogView/:id", blogController.view);
 blogRouter.get("/singUp", blogController.singUp);
 
-blogRouter.use(userAuth);
 blogRouter.get("/login", blogController.login);
 blogRouter.post("/createCred", blogController.createCred);
 blogRouter.post("/checkCred", blogController.checkCred);
-blogRouter.get("/form", blogController.formPage);
+blogRouter.get("/form",userAuth,blogController.formPage);
 
 module.exports = blogRouter;

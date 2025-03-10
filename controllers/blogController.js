@@ -119,20 +119,19 @@ module.exports.createCred = async (req, res) => {
 };
 
 module.exports.checkCred = async (req, res) => {
-  let { username, password } = req.body;
-  let cred = await userCred.findOne({ username });
-  if (!cred) {
-    console.log("User not found!");
-    return res.redirect("/login");
-  }
+  try {
+    let cred = await userCred.findOne({ username: req.body.username });
+    if (cred.password === req.body.password) {
+      res.cookie("userId", cred.id);
 
-  if (cred.username === username && cred.password === password) {
-    res.cookie("userId", cred.id);
-    console.log("Cookie set:", cred.id);
-    return res.redirect("/index");
-  } else {
-    console.log("Invalid credentials!");
-    return res.redirect("/login");
+      res.redirect("/index");
+    } else {
+      console.log("invalid password...!");
+      res.redirect("/login");
+    }
+  } catch (error) {
+    res.redirect("/login");
+    console.log(error.message);
   }
 };
 

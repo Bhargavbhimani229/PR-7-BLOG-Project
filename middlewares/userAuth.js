@@ -1,11 +1,8 @@
 const userAuth = (req, res, next) => {
-  const {userId} = req.cookies; 
-  console.log("Cookies Received:", req.cookies); 
-  if (userId) {
-    return next();
+  if (req.cookies.userId) {
+    next();
   } else {
-    console.log("❌ No valid userId found in cookies.");
-    res.redirect("/login"); 
+    res.redirect("/login");
   }
 };
 

@@ -8,12 +8,14 @@ const port = 8076;
 const app = express();
 
 app.use(express.urlencoded({extended:true}))
-app.use(cookieParser());
 app.set("view engine", "ejs");
+app.use(cookieParser());
 
 app.use(blogRedirect);
 app.use("/uploads",express.static(__dirname + '/uploads'));
 app.use("/",require("./routers"));
+
+
 
 
 app.listen(port, (err) => {
