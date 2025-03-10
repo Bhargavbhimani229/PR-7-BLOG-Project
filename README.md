@@ -1,5 +1,7 @@
 # Blog Project
 
+# Deploy Link : https://pr-7-blog-project-r2lx.onrender.com
+
 ## Description
 This is a blog project built using Node.js, Express, MongoDB, and EJS. The application allows users to register, log in, create, update, and delete blog posts with image uploads. Authentication is managed using cookies.
 
@@ -44,7 +46,7 @@ This is a blog project built using Node.js, Express, MongoDB, and EJS. The appli
 
 ## Default Login Credentials
 - **Username:** admin
-- **Password:** 123
+- **Password:** 1234
 
 ## Folder Structure
 ```
